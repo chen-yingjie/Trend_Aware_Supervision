@@ -60,8 +60,7 @@ class Model(nn.Module):
 
     Args:
         num_class (int): Number of classes for the classification task
-        temporal_model (str): choose from None, 'lstm' and 'tcn'
-        backbone (str): choose from 'simple', 'resnet50', 'resnet101', 'vgg16', 'alexnet'
+        backbone (str): 'resnet34'
         pooling (bool): pooling before mlp or not
         normalize (bool): normalize features or not
         activation (str): apply activation function for output or not
@@ -75,7 +74,6 @@ class Model(nn.Module):
     def __init__(self,
                  num_class,
                  backbone='resnet34',
-                 temporal_model=None,
                  pooling=True,
                  normalize=True,
                  activation='',
@@ -83,7 +81,6 @@ class Model(nn.Module):
         super().__init__()
         self.num_class = num_class
         self.backbone = backbone
-        self.temporal_model = temporal_model
 
         self.pooling = pooling
         self.normalize = normalize
@@ -149,10 +146,7 @@ class Model(nn.Module):
                 ])
 
     def forward(self, image):
-        '''
-        image for cnn: [N, C, H, W] if image-based
-                        [N, T, C, H, W] if sequential-based (temporal_model is set)
-        '''
+        
         if len(image.shape) < 5:
             N, _, _, _ = image.shape
             T = 1
@@ -186,10 +180,9 @@ class Model(nn.Module):
         feature = torch.stack(features, dim=-1)
         attn_weights = torch.stack(attn_weights, dim=-1)
 
-        if self.temporal_model is None:
-            cls_outputs = []
-            for idx in range(self.num_class):
-                cls_outputs.append(self.final[idx](x[:, :, idx]))
-            output = torch.stack(cls_outputs, dim=-1).squeeze(1)
+        cls_outputs = []
+        for idx in range(self.num_class):
+            cls_outputs.append(self.final[idx](x[:, :, idx]))
+        output = torch.stack(cls_outputs, dim=-1).squeeze(1)
 
-            return output, feature, attn_weights
+        return output, feature, attn_weights
