@@ -43,6 +43,8 @@ For DISFA, split the subject IDs into 3 folds randomly for subject-exclusive 3-f
 Our dataloader `$INSTALL_DIR/feeder/feeder_segment.py` requires two data files (an example is given in `$INSTALL_DIR/data/bp4d_example`):
 * `label_path`: the path to file which contains labels ('.pkl' data), [N, 1, num_class]
 * `image_path`: the path to file which contains image paths ('.pkl' data), [N, 1]
+* `state_path`: the path to file which contains states ('.pkl' data), [N, 1, num_class]
+* `trend_path`: the path to file which contains trends ('.pkl' data), [N, 1, num_class]
 
 ## Training 
 ```bash
