@@ -1,4 +1,11 @@
-# Follow the Trend: Trend-Aware Supervision for Semi-Supervised Facial Action Unit Intensity Estimation
+# Trend-Aware Supervision: On Learning Invariance for Semi-Supervised 057 058 Facial Action Unit Intensity Estimation
+
+## Motivation
+<p align="center">
+<img src="resources/motivation.png" width="88%" />
+</p>
+
+## Overview
 <p align="center">
 <img src="resources/overview.png" width="88%" />
 </p>
