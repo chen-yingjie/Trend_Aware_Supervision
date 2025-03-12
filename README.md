@@ -1,6 +1,6 @@
 # Trend-Aware Supervision: On Learning Invariance for Semi-Supervised Facial Action Unit Intensity Estimation
 
-Official implementation of "[Trend-Aware Supervision: On Learning Invariance for Semi-Supervised Facial Action Unit Intensity Estimation]()" (AAAI 2024).
+Official implementation of "[Trend-Aware Supervision: On Learning Invariance for Semi-Supervised Facial Action Unit Intensity Estimation](https://arxiv.org/abs/2503.08078)" (AAAI 2024).
 
 <p align="center">
 <img src="assets/overview.png" width="88%" />
@@ -77,5 +77,7 @@ If you find this code useful for your research, please use the following BibTeX 
 @inproceedings{chen2024trend,
   title={Trend-Aware Supervision: On Learning Invariance for Semi-Supervised Facial Action Unit Intensity Estimation},
   author={Chen, Yingjie and Zhang, JiaRui and Wang, Tao and Liang, Yun},
+  journal={arXiv preprint arXiv:2503.08078},
+  booktitle={AAAI},
   year={2024}}
 ```
